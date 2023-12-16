@@ -1,34 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
+import Nav from './components/Nav';
+import Banner from './components/Banner';
+import Row from './components/Row';
+import requests from './components/requests';
+import './assets/App.css';
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+   
+  return ( 
+    
+      <div className="apps" >
+        <Nav />
+        <Banner  />
+        
+        <Row title =" Netflix Originals" fetchURL={requests.fetchNetflixOriginals}
+        isLargeRow /> 
+        <Row  title ="Treding Now" fetchURL={requests.fetchTrending}/> 
+        <Row  title ="Tot Rated " fetchURL={requests.fetchTopRated}/>
+        <Row  title ="Action Movies" fetchURL={requests.fetchActionMovies}/>
+        <Row  title ="Comedy Movies" fetchURL={requests.fetchComedyMovies}/>
+        <Row  title ="Horror Movies" fetchURL={requests.fetchHorrorMovies}/>
+        <Row  title ="Romance Movies" fetchURL={requests.fetchRomanceMovies}/>
+        <Row  title ="Documentaries" fetchURL={requests.fetchDocumentaries}/>
+ 
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+  
   )
 }
 
